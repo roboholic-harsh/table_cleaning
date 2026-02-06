@@ -8,22 +8,21 @@
 
 **A robotic manipulation framework for Table Cleaning using the Franka Emika Panda in Ignition Gazebo.**
 
-## 📋 Table of Contents
-1. [Project Overview](#-project-overview)
+## Table of Contents
+1. [Project Overview](#project-overview)
+2. [Tech Stack](#tech-stack)
+3. [System Architecture](#system-architecture)
+4. [Directory Structure](#directory-structure)
+5. [Installation](#installation)
+6. [How to Run](#how-to-run)
 
-2. [Tech Stack](#-tech-stack)
-3. [System Architecture](#-system-architecture)
-4. [Directory Structure](#-directory-structure)
-5. [Installation](#-installation)
-6. [How to Run: Table Cleaning](#-how-to-run-mode-a)
-
-## 🚀 Project Overview
+## Project Overview
 This repository implements a complete autonomous manipulation framework developed on **ROS 2 Humble**. It integrates computer vision (OpenCV) and motion planning (MoveIt 2) to control a 7-DOF **Franka Emika Panda** robot in a physics-based simulation (Ignition Gazebo).
 
 * **Objective:** Maintain a clean workspace by autonomously removing randomly spawned cubes.
 * **Behavior:** A spawner continuously drops cubes at random position every 30 seconds. The robot detects cubes anywhere on the table, plans a path, and clears it into a dustbin.
 
-## 🛠 Tech Stack
+## Tech Stack
 
 | Component | Technology |
 | :--- | :--- |
@@ -35,7 +34,7 @@ This repository implements a complete autonomous manipulation framework develope
 | **Programming** | Python 3.10 |
 | **Hardware** | Franka Emika Panda (Simulated) |
 
-## 🧠 System Architecture
+## System Architecture
 
 The system follows a modular pipeline structure, separating Perception, Logic, and Actuation.
 
@@ -58,7 +57,7 @@ The image above illustrates the overall architecture and data flow of our ROS 2 
 
 
 
-## 📂 Directory Structure
+## Directory Structure
 
 ```text
 src
@@ -83,16 +82,7 @@ src
         ├── detector.py             # Generic Object Detection Node
         └── __init__.py
 ```
-
-It sounds like the "Directory Structure" code block wasn't closed properly. In Markdown, you must end a code block with three backticks (`````) before starting a new section.
-
-Here is the **exact fix**. Copy and paste this to close your directory section and start the installation section cleanly:
-
-```markdown
-
-```
-
-## ⚙️ Installation
+## Installation
 
 ### 1. Prerequisites
 
@@ -102,6 +92,10 @@ Ensure you have the following core components installed on your system. Click th
 * **[Ignition Gazebo Fortress](https://gazebosim.org/docs/fortress/install_ubuntu)** (Simulated physics engine)
 * **[MoveIt 2](https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html)** (Motion planning framework)
 
+**to install opencv using pip:**
+```bash
+pip install opencv
+```
 ### 2. Setup Workspace
 
 Once the prerequisites are ready, set up your ROS 2 workspace:
@@ -126,26 +120,18 @@ rosdep install --from-paths src --ignore-src -r -y
 ```
 
 ### 4. Build the Project
-
 Compile the packages using `colcon`:
 
 ```bash
 colcon build --symlink-install
-source install/setup.bash
 ```
+## How to Run
 
-Here is the **How to Run** section. I have separated it into two clear modes so users don't get confused.
+Open **2 separate terminal tabs**. In *every* tab, make sure to source your workspace first:
 
-Copy this block into your `README.md`:
-
-```markdown
-## ▶️ How to Run
-
-Open **4 separate terminal tabs**. In *every* tab, make sure to source your workspace first:
 
 ```bash
 source install/setup.bash
-
 ```
 
 *by running this the robot continuously clears objects that spawn every 30 seconds.*
@@ -156,4 +142,7 @@ source install/setup.bash
 | **2** | **Brain** | `ros2 run automatic_pnp clear_table` |
 
 ---
+
+The framework can be extended to different objects, tasks, and robotic platforms with minimal modifications.
+
 
