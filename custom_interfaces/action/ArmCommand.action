@@ -1,0 +1,11 @@
+# Goal
+string json_command
+
+---
+# Result
+bool success
+string message
+
+---
+# Feedback
+string state

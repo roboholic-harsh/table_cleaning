@@ -1,0 +1,150 @@
+:root {
+  font-size: 150%;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f7f7f8;
+  color: #1f2937;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 1rem 15%;
+}
+
+.logo {
+  height: 1.7rem;
+}
+
+.title {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* Separator */
+.separator {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 0 15%;
+}
+
+/* Chat */
+.chat-container {
+  flex: 1;
+  padding: 1.4rem 15%;
+  overflow-y: auto;
+}
+
+/* Messages */
+.message {
+  max-width: 75%;
+  margin-bottom: 1.2rem;
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+}
+
+.user {
+  background: #e0e7ff;
+  margin-left: auto;
+}
+
+.bot {
+  background: #f1f5f9;
+  margin-right: auto;
+}
+
+/* Input */
+.input-bar {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.6rem;
+  padding: 1rem 15%;
+}
+
+textarea {
+  flex: 1;
+  resize: none;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid #d1d5db;
+  outline: none;
+  font-size: 0.95rem;
+  max-height: 12rem;
+  overflow-y: auto;
+}
+
+textarea:focus {
+  border-color: #6366f1;
+}
+
+button {
+  padding: 0.8rem 1.1rem;
+  font-size: 1.1rem;
+  border-radius: 1rem;
+  border: none;
+  background: #6366f1;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+/* Model selector */
+.model-select {
+  height: 3.2rem;              /* MATCH textarea height */
+  padding: 0 0.9rem;
+  border-radius: 1rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  background: white;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.model-select:focus {
+  border-color: #6366f1;
+}
+
+
+/* Loader */
+.loader-bubble {
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.6rem 0.9rem;
+  font-size: 1.4rem;
+}
+
+.loader-dot {
+  animation: blink 1.4s infinite both;
+}
+
+.loader-dot:nth-child(2) { animation-delay: 0.2s; }
+.loader-dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes blink {
+  0% { opacity: 0.2; }
+  20% { opacity: 1; }
+  100% { opacity: 0.2; }
+}

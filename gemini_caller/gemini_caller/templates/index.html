@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robot Command · LLM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Header -->
+  <header class="header">
+    <img src="{{ url_for('static', filename='ollama.png') }}" class="logo">
+    <span class="title">Robot Command · LLM</span>
+  </header>
+
+  <div class="separator"></div>
+
+  <!-- Chat -->
+  <div id="chat" class="chat-container"></div>
+
+  <div class="separator"></div>
+
+  <!-- Input -->
+  <div class="input-bar">
+
+    <!-- Model Selector -->
+    <select id="modelSelect" class="model-select">
+      <option value="groq">⚡ Groq (fast)</option>
+      <option value="gemini">🔵 Gemini</option>
+    </select>
+
+    <textarea
+      id="userInput"
+      placeholder="Enter command…"
+      rows="1"></textarea>
+
+    <button id="sendBtn">➤</button>
+  </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
