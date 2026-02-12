@@ -57,7 +57,9 @@ class ProfessionalTopRightDetector(Node):
         # Using the wide Red range to be safe
         mask1 = cv2.inRange(hsv, np.array([0, 100, 220]), np.array([10, 255, 255]))
         mask2 = cv2.inRange(hsv, np.array([170, 100, 220]), np.array([180, 255, 255]))
-        mask = mask1 + mask2
+        mask3 = cv2.inRange(hsv, np.array([35, 100, 220]), np.array([85, 255, 255]))
+        mask4 = cv2.inRange(hsv, np.array([100, 100, 220]), np.array([140, 255, 255]))
+        mask = mask1 + mask2 + mask3 + mask4
         
         contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
         
